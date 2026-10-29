@@ -37,10 +37,6 @@ function Get-BcContainerSession {
         if ($platformVersion.Major -lt 24) {
             $usePwsh = $false
         }
-        if ($isInsideContainer -and $platformVersion.Major -lt 29) {
-            # BC v24-v28 containers keep using Windows PowerShell sessions from inside a container (BC v27 and v28 have known PS7 remote session issues)
-            $usePwsh = $false
-        }
         $configurationName = 'Microsoft.PowerShell'
         if ($usePwsh) {
             $configurationName = 'PowerShell.7'

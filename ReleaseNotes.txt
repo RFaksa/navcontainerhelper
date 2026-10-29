@@ -1,5 +1,5 @@
 6.1.20
-Fix BC v29 containers created and used from inside a container (e.g. containerized build agents) failing because sessions were always created in Windows PowerShell. New-BcContainer now registers the PowerShell.7 endpoint when running inside a container and Get-BcContainerSession uses it for BC v29 and later.
+Fix BC v29 containers created and used from inside a container (e.g. containerized build agents) failing because sessions were always created in Windows PowerShell. New-BcContainer now registers the PowerShell.7 endpoint when running inside a container and Get-BcContainerSession respects usePwshForBc24 when running inside a container. BC v27 and v28 keep Windows PowerShell sessions from inside a container due to the known PS7 remote session issue.
 
 6.1.19
 Add Parameter allowPrerelease to Publish-BcNuGetPackageToContainer
